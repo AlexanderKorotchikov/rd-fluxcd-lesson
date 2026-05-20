@@ -1,0 +1,17 @@
+apiVersion: dragonflydb.io/v1alpha1
+kind: Dragonfly
+metadata:
+  name: dragonfly-db
+spec:
+  replicas: 2
+  image: docker.dragonflydb.io/dragonflydb/dragonfly:latest
+  imagePullPolicy: IfNotPresent
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 1Gi
+  serviceSpec:
+    type: ClusterIP
