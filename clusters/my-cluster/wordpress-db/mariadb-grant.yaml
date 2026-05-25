@@ -1,0 +1,15 @@
+apiVersion: k8s.mariadb.com/v1alpha1
+kind: Grant
+metadata:
+  name: wp-user-grant
+  namespace: wordpress
+spec:
+  mariaDbRef:
+    name: wordpress-mariadb
+  privileges:
+    - "ALL PRIVILEGES"
+  database: "wordpress"
+  table: "*"
+  username: wp-user
+  host: "%"
+  grantOption: false

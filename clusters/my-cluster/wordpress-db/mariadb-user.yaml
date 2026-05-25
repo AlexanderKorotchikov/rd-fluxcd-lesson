@@ -1,0 +1,14 @@
+apiVersion: k8s.mariadb.com/v1alpha1
+kind: User
+metadata:
+  name: wp-user
+  namespace: wordpress
+spec:
+  mariaDbRef:
+    name: wordpress-mariadb
+  passwordSecretKeyRef:
+    name: mariadb-secret
+    key: password
+    generate: false
+  host: "%"
+  maxUserConnections: 20
